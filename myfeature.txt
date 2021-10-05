@@ -1,2 +1,3 @@
 my feature
 hi
+hi2
