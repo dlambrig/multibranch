@@ -13,6 +13,9 @@ podTemplate(containers: [
             container('gradle') {
    
                 stage('Build a gradle project') {
+                    when {
+  		          branch "feature*"
+                    }
                     sh '''
                     cd Chapter08/sample1
                     chmod +x gradlew
