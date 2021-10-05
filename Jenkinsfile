@@ -1,21 +1,14 @@
 podTemplate(containers: [
     containerTemplate(
-        name: 'maven', 
-        image: 'maven:3.8.1-jdk-8', 
+        name: 'gradle', 
+        image: 'gradle:6.3-jdk14', 
         command: 'sleep', 
         args: '30d'
         ),
-  ],
-  volumes: [
-  persistentVolumeClaim(
-      mountPath: '/root/.m2/repository', 
-      claimName: 'jenkins-pv-claim', 
-      readOnly: false
-      )
   ]) {
 
     node(POD_LABEL) {
-       stage('Run pipeline against a gradle project') {
+        stage('Run pipeline against a gradle project') {
             git 'https://github.com/dlambrig/Continuous-Delivery-with-Docker-and-Jenkins-Second-Edition.git'
             container('gradle') {
    
@@ -25,8 +18,11 @@ podTemplate(containers: [
                     chmod +x gradlew
                     '''
                     }
+            
+                }
+
             }
         }
-
     }
+
   }
