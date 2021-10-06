@@ -27,7 +27,7 @@ echo env.GIT_BRANCH
             steps { 
                echo "I am a main branch"
             }
-        }  
+        }
     }
 }
 
