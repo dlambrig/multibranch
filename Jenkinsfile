@@ -11,10 +11,12 @@ pipeline {
         '''
     }
   }
-stage('Check') {
-    steps {        
-        println "The File exists :)" 
+stages {
+        stage('Example') {
+            steps {
+                echo 'Hello World'
+            }
+        }
     }
-}
 }
 
