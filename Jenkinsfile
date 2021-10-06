@@ -6,11 +6,7 @@ podTemplate(containers: [
         args: '30d'
         ),
   ]) {
-    node(POD_LABEL) {
-        stage('Run pipeline against a gradle project') {
-                git 'https://github.com/apple/foundationdb.git'
-                branchName = sh(label: 'getBranchName', returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
-                println branchName
-        }
+    agent(POD_LABEL) {
+        echo 'hi'
     }
 }
