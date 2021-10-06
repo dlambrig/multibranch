@@ -6,7 +6,6 @@ podTemplate(containers: [
         args: '30d'
         ),
   ]) {
-    pipeline {
     node(POD_LABEL) {
         stage('Run pipeline against a gradle project') {
             if (env.BRANCH_NAME == 'master') {
@@ -26,6 +25,5 @@ podTemplate(containers: [
                 }
             }
         }
-    }
     }
 }
