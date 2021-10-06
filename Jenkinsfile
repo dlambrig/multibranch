@@ -6,28 +6,26 @@ podTemplate(containers: [
         args: '30d'
         ),
   ]) {
-
+    pipeline {
     node(POD_LABEL) {
         stage('Run pipeline against a gradle project') {
-                    when {
-                        branch 'feature1'
-                    }            
-            git 'https://github.com/dlambrig/Continuous-Delivery-with-Docker-and-Jenkins-Second-Edition.git'
-            container('gradle') {
+            if (env.BRANCH_NAME == 'master') {
+                echo 'nope'
+            } else {
+                git 'https://github.com/dlambrig/Continuous-Delivery-with-Docker-and-Jenkins-Second-Edition.git'
+                container('gradle') {
    
-                stage('Build a gradle project') {
-                    steps {
-                        sh '''
-                        cd Chapter08/sample1
-                        chmod +x gradlew
-                        '''
-                    
+                    stage('Build a gradle project') {
+                        steps {
+                            sh '''
+                            cd Chapter08/sample1
+                            chmod +x gradlew
+                            '''
+                        }        
                     }
-            
                 }
-
             }
         }
     }
-
+    }
 }
