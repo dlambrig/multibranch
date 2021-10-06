@@ -11,8 +11,9 @@ pipeline {
   }
 stages {
         stage('Example') {
-            steps {
-                echo 'Hello World'
+            when { branch "master" }
+            steps { 
+               echo "I am a master branch"
             }
         }
     }
