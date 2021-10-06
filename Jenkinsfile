@@ -24,7 +24,11 @@ echo env.GIT_LOCAL_BRANCH
             }
         }
         stage('main') {
-            when { branch "*main*" }
+            when {
+              expression {
+                return env.GIT_BRANCH == "origin/main"
+              }
+            } 
             steps { 
                echo "I am a main branch"
             }
