@@ -22,7 +22,7 @@ echo "hi"
             }
         }
         stage('main') {
-            when { branch "main" }
+            when { branch "origin/main" }
             steps { 
                echo "I am a main branch"
             }
