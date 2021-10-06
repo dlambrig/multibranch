@@ -6,7 +6,9 @@ podTemplate(containers: [
         args: '30d'
         ),
   ]) {
+    pipeline {
     agent(POD_LABEL) {
         echo 'hi'
+    }
     }
 }
