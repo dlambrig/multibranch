@@ -12,9 +12,8 @@ pipeline {
 stages {
   stage('first') {
     steps {
-def branch_nem = scm.branches[0].name
-if (branch_nem.contains("*/")) {
-    branch_nem = branch_nem.split("\\*/")[1]
+BRANCH_NAME = "${GIT_BRANCH.split('/').size() > 1 ? GIT_BRANCH.split('/')[1..-1].join('/') : GIT_BRANCH}"
+
     }
 echo branch_nem      
     }
