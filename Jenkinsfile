@@ -12,21 +12,22 @@ pipeline {
 stages {
   stage('first') {
     steps {
-echo "hi"    
+echo env.GIT_BRANCH
+echo env.GIT_LOCAL_BRANCH 
     }
   }
-        stage('master') {
-            when { branch "master" }
+        stage('feature') {
+            when { branch "feature" }
             steps { 
-               echo "I am a master branch"
+               echo "I am a feature branch"
             }
         }
         stage('main') {
-            when { branch "origin/main" }
+            when { branch "*main*" }
             steps { 
                echo "I am a main branch"
             }
-        }  
+        }
     }
 }
 
