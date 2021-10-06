@@ -1,3 +1,4 @@
+
 pipeline {
   agent {
     kubernetes {
@@ -10,23 +11,32 @@ pipeline {
     }
   }
 stages {
-  stage('first') {
+  stage('debug') {
     steps {
-echo "hi"    
+        echo env.GIT_BRANCH
+        echo env.GIT_LOCAL_BRANCH 
     }
   }
-        stage('master') {
-            when { branch "master" }
+        stage('feature') {
+            when { 
+              expression {
+                return env.GIT_BRANCH == "origin/feature"
+              }
+            }
             steps { 
-               echo "I am a master branch"
+               echo "I am a feature branch"
             }
         }
         stage('main') {
-            when { branch "origin/main" }
+            when {
+              expression {
+                return env.GIT_BRANCH == "origin/main"
+              }
+            } 
             steps { 
                echo "I am a main branch"
             }
-        }  
+        }
     }
 }
 
