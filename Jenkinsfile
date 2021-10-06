@@ -11,8 +11,10 @@ pipeline {
         '''
     }
   }
- stages {
-    echo 'hi'
- }
+stage('Check') {
+    steps {        
+        println "The File exists :)" 
+    }
+}
 }
 
