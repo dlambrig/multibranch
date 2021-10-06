@@ -13,7 +13,7 @@ pipeline {
 stages {
   stage('first') {
     steps {
-echo "hi"    
+echo env.GIT_BRANCH
     }
   }
         stage('master') {
