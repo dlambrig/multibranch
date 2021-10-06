@@ -28,7 +28,7 @@ echo env.GIT_LOCAL_BRANCH
             steps { 
                echo "I am a main branch"
             }
-        }  
+        }
     }
 }
 
