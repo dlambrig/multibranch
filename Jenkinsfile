@@ -12,8 +12,7 @@ pipeline {
 stages {
   stage('first') {
     steps {
-BRANCH_NAME = "${GIT_BRANCH.split('/').size() > 1 ? GIT_BRANCH.split('/')[1..-1].join('/') : GIT_BRANCH}"
-    
+echo "hi"    
     }
   }
         stage('master') {
