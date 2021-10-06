@@ -22,7 +22,7 @@ echo env.GIT_BRANCH
                echo "I am a master branch"
             }
         }
-        stage('orgin/main') {
+        stage('origin/main') {
             when { branch "origin/main" }
             steps { 
                echo "I am a main branch"
