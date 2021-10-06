@@ -1,4 +1,5 @@
-podTemplate(containers: [
+pipeline {
+    podTemplate(containers: [
     containerTemplate(
         name: 'gradle', 
         image: 'gradle:6.3-jdk14', 
@@ -6,9 +7,9 @@ podTemplate(containers: [
         args: '30d'
         ),
   ]) {
-    pipeline {
+    
     agent(POD_LABEL) {
         echo 'hi'
     }
-    }
+}
 }
