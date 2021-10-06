@@ -11,14 +11,18 @@ pipeline {
     }
   }
 stages {
-  stage('first') {
+  stage('debug') {
     steps {
-echo env.GIT_BRANCH
-echo env.GIT_LOCAL_BRANCH 
+        echo env.GIT_BRANCH
+        echo env.GIT_LOCAL_BRANCH 
     }
   }
         stage('feature') {
-            when { branch "feature" }
+            when { 
+              expression {
+                return env.GIT_BRANCH == "origin/feature"
+              }
+            }
             steps { 
                echo "I am a feature branch"
             }
