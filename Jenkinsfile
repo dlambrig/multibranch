@@ -8,11 +8,8 @@ podTemplate(containers: [
   ]) {
     node(POD_LABEL) {
         stage('Run pipeline against a gradle project') {
-            if (env.BRANCH_NAME == 'master') {
-                echo 'nope'
-            } else {
-                echo env.BRANCH_NAME
-            }
+                branchName = sh(label: 'getBranchName', returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
+                println branchName
         }
     }
 }
