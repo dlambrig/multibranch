@@ -1,14 +1,5 @@
 pipeline {
- agent {
-    kubernetes {
-      yaml '''
-      spec:
-        containers:
-        - name: gradle
-          image: gradle:6.3-jdk14     
-'''
-    }
-}
+ agent none
 stages {
         stage('feature') {
             when { 
