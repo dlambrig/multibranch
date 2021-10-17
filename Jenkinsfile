@@ -23,6 +23,9 @@ stages {
                 return env.GIT_BRANCH == "origin/feature"
               }
             }
+            agent {
+                docker { image 'node:7-alpine' }
+            }   
             steps { 
                echo "I am a feature branch"
             }
