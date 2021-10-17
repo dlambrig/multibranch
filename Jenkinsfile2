@@ -12,8 +12,8 @@ stages {
       yaml '''
       spec:
         containers:
-        - name: alpine
-          image: centos7
+        - name: centos
+          image: centos
 '''
     }
             }   
@@ -32,8 +32,8 @@ stages {
       yaml '''
       spec:
         containers:
-        - name: alpine
-          image: centos7
+        - name: centos
+          image: centos
 '''
     }
             }              
