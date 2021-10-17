@@ -27,7 +27,7 @@ stages {
                 docker { image 'node:7-alpine' }
             }   
             steps { 
-               echo "I am a feature branch"
+               echo "I am a feature branch2"
             }
         }
         stage('main') {
