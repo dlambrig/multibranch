@@ -24,7 +24,15 @@ stages {
               }
             }
             agent {
-                docker { image 'node:7-alpine' }
+  agent {
+    kubernetes {
+      yaml '''
+      spec:
+        containers:
+        - name: alpine
+          image: node:7-alpine
+'''
+    }
             }   
             steps { 
                echo "I am a feature branch"
