@@ -34,6 +34,16 @@ stages {
                 return env.GIT_BRANCH == "origin/main"
               }
             } 
+            agent {
+    kubernetes {
+      yaml '''
+      spec:
+        containers:
+        - name: alpine
+          image: node:7-alpine
+'''
+    }
+            }              
             steps { 
                echo "I am a main branch"
             }
