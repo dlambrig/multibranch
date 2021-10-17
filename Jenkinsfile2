@@ -2,12 +2,6 @@
 pipeline {
 agent none
 stages {
-  stage('debug') {
-    steps {
-        echo env.GIT_BRANCH
-        echo env.GIT_LOCAL_BRANCH 
-    }
-  }
         stage('feature') {
             when { 
               expression {
