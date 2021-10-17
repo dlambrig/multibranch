@@ -24,7 +24,6 @@ stages {
               }
             }
             agent {
-  agent {
     kubernetes {
       yaml '''
       spec:
