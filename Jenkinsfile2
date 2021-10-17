@@ -1,4 +1,4 @@
-pipeline { agent none
+pipeline { agent any
 stages {
         stage('feature') {
             when { 
