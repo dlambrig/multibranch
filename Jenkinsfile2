@@ -13,7 +13,7 @@ stages {
       spec:
         containers:
         - name: alpine
-          image: node:7-alpine
+          image: centos7
 '''
     }
             }   
@@ -33,7 +33,7 @@ stages {
       spec:
         containers:
         - name: alpine
-          image: node:7-alpine
+          image: centos7
 '''
     }
             }              
